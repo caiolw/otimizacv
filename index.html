@@ -1,299 +1,108 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OtimizaCV | Projeto Interdisciplinar</title>
-<meta name="description" content="OtimizaCV: proposta de ferramenta que analisa currículos e indica ajustes para que sejam lidos corretamente por sistemas de triagem automática (ATS).">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<title>OtimizaCV</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"><style>
+body{margin:0;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;color:#606c71}
+.ph{color:#fff;text-align:center;background:#159957;background-image:linear-gradient(120deg,#155799,#159957);padding:4rem 1.5rem}
+.ph h1{font-size:3.25rem;margin:0 0 .1rem;font-weight:700}
+.ph h2{font-size:1.25rem;font-weight:400;opacity:.8;margin:0 auto 1.5rem;max-width:640px}
+.ph p{opacity:.75;font-size:.9rem;margin:0 0 1.5rem}
+.btn{display:inline-block;margin:0 .3rem .6rem;color:rgba(255,255,255,.75);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:.3rem;padding:.6rem 1rem;text-decoration:none}
+.btn:hover{color:#fff;background:rgba(255,255,255,.2)}
+.mc{max-width:64rem;padding:2rem 4rem;margin:0 auto;word-wrap:break-word}
+.mc h2{color:#159957;font-weight:400;font-size:1.6rem;margin:2rem 0 1rem}
+.mc h3{color:#159957;font-weight:400;font-size:1.2rem;margin:1.4rem 0 .5rem}
+table{display:block;width:100%;overflow:auto;border-collapse:collapse;margin:1rem 0}
+th{font-weight:700;background:#f8f8f8}th,td{padding:.5rem 1rem;border:1px solid #e9ebec;text-align:left;vertical-align:top}
+a{color:#1e6bb8;text-decoration:none}a:hover{text-decoration:underline}
+blockquote{padding:0 1rem;margin:1rem 0;color:#819198;border-left:.3rem solid #dce6f0}
+.ref{font-size:.92rem}
+.foot{margin-top:2rem;padding-top:2rem;border-top:1px solid #eff0f1;font-size:.9rem}
+@media(max-width:700px){.mc{padding:1.5rem 1rem}.ph{padding:2.5rem 1rem}.ph h1{font-size:2.2rem}}
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a class="brand" href="#inicio" aria-label="OtimizaCV, início">Otimiza<span>CV</span></a>
-    <nav aria-label="Seções da página">
-      <ul>
-        <li><a href="#problema">Problema</a></li>
-        <li><a href="#solucao">Solução</a></li>
-        <li><a href="#demonstracao">Demonstração</a></li>
-        <li><a href="#equipe">Equipe</a></li>
-        <li><a href="#documentacao">Documentação</a></li>
-        <li><a href="#evolucao">Evolução</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="conteudo">
-
-<!-- APRESENTAÇÃO -->
-<section id="inicio" class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Projeto Interdisciplinar I · Gestão da Tecnologia da Informação · IFPR · 2026.2</p>
-      <h1>Currículos que a máquina consegue ler.</h1>
-      <p class="lead">O OtimizaCV é uma proposta de ferramenta que analisa um currículo junto com a descrição de uma vaga e aponta o que impede o documento de ser lido corretamente por sistemas de triagem automática (ATS): problemas de formatação, seções não reconhecidas e competências ausentes.</p>
-      <p>O projeto tem caráter de extensão: aproxima técnicas de Processamento de Linguagem Natural e Recuperação de Informação de trabalhadores e estudantes que buscam emprego, sobretudo de quem tem menos acesso a orientação profissional.</p>
-      <div class="actions">
-        <a class="btn primary" href="#problema">Conhecer o projeto</a>
-        <a class="btn" href="https://github.com/caiolw/otimizacv">Repositório no GitHub ↗</a>
-      </div>
-      <p class="status-note"><span class="tag planned">Estado atual</span> Proposta e documentação. Nenhuma funcionalidade da ferramenta foi implementada ainda.</p>
-    </div>
-
-    <figure class="sheet" aria-labelledby="sheet-cap">
-      <div class="sheet-head">
-        <span class="mono">analise_exemplo.txt</span>
-        <span class="tag illus">Ilustrativo</span>
-      </div>
-      <div class="sheet-body">
-        <p class="mono small muted">Vaga: Analista de Suporte de TI</p>
-        <div class="score" role="img" aria-label="Pontuação de aderência ilustrativa: 62 de 100">
-          <span class="score-num">62</span><span class="score-max">/100</span>
-          <div class="bar"><span style="width:62%"></span></div>
-        </div>
-        <ul class="checks">
-          <li class="ok">Seção “Experiência” reconhecida</li>
-          <li class="ok">Termos encontrados: Active Directory, Windows Server</li>
-          <li class="warn">Ausente no currículo: ITIL, Microsoft 365</li>
-          <li class="warn">Contato dentro de cabeçalho de página: pode não ser lido</li>
-        </ul>
-      </div>
-      <figcaption id="sheet-cap">Exemplo conceitual do tipo de retorno pretendido. Os valores são fictícios e não foram gerados por nenhum sistema.</figcaption>
-    </figure>
-  </div>
+table{display:block;overflow-x:auto;max-width:100%}.ref{overflow-wrap:anywhere}main,article{min-width:0}</style></head><body>
+<section class="ph">
+<h1>OtimizaCV</h1>
+<h2>Ferramenta para verificar se o seu currículo está sendo lido corretamente por sistemas de triagem automática (ATS).</h2>
+<p>Gestão da Tecnologia da Informação · IFPR · Projeto Interdisciplinar I · 2026.2</p>
+<a class="btn" href="https://github.com/caiolw/otimizacv">Ver no GitHub</a><a class="btn" href="https://github.com/caiolw/otimizacv/blob/main/docs/requisitos.md">Requisitos</a><a class="btn" href="https://github.com/caiolw/otimizacv/blob/main/docs/arquitetura.md">Arquitetura</a>
 </section>
+<section class="mc">
+<blockquote>Projeto em planejamento. A ferramenta ainda não foi implementada; esta página reúne a proposta e a documentação.</blockquote>
+<h2>Sobre o projeto</h2>
+<p>Muitas empresas usam sistemas de triagem automática, os chamados ATS (<i>Applicant Tracking Systems</i>), para receber e filtrar candidaturas antes que alguém leia os currículos. Esses sistemas extraem o texto do arquivo e comparam com os requisitos da vaga. Quando o currículo tem tabelas, colunas, imagens ou não usa os mesmos termos do anúncio, a leitura pode falhar e o candidato acaba mal classificado sem saber o motivo.</p>
+<p>O OtimizaCV vai receber o currículo e a descrição da vaga, comparar os dois e mostrar o que pode ser ajustado: termos que faltam, seções que o sistema não reconhece e problemas de formatação. O projeto também tem caráter de extensão, já que a ideia é levar técnicas de Processamento de Linguagem Natural para quem está procurando emprego e não tem acesso a orientação de carreira.</p>
+<p><b>Situação atual:</b> o projeto está na fase de planejamento. Esta página reúne a proposta e a documentação; a ferramenta ainda não foi implementada.</p>
 
-<!-- PROBLEMA -->
-<section id="problema" class="block">
-  <div class="wrap">
-    <p class="kicker">01 · Problema e justificativa</p>
-    <h2>Um bom candidato pode ser descartado antes de qualquer pessoa ler o currículo.</h2>
-    <div class="cols">
-      <div>
-        <h3>O que está sendo investigado</h3>
-        <p>Empresas usam cada vez mais sistemas automatizados para receber, organizar e filtrar candidaturas. Esses sistemas extraem o texto do currículo, tentam identificar seções e comparam o conteúdo com os requisitos da vaga. Quando o arquivo usa tabelas, colunas, imagens ou cabeçalhos, ou quando descreve uma competência com palavras diferentes das usadas no anúncio, a leitura falha e o candidato pode ser classificado abaixo do que merece.</p>
-        <p>O candidato normalmente não recebe nenhum retorno sobre isso. Não sabe se foi recusado pelo perfil ou porque o sistema não conseguiu ler o documento.</p>
-      </div>
-      <div>
-        <h3>Quem é afetado</h3>
-        <ul class="plain">
-          <li>Estudantes e recém-formados em busca do primeiro emprego ou estágio.</li>
-          <li>Trabalhadores em recolocação que não conhecem o funcionamento dos ATS.</li>
-          <li>Pessoas com menos acesso a orientação de carreira, consultorias ou ferramentas pagas.</li>
-        </ul>
-        <h3>Por que vale buscar uma solução</h3>
-        <p>A literatura sobre recrutamento indica que o uso de tecnologia e IA na seleção cresce junto com dúvidas sobre transparência e resistência dos próprios candidatos (Blumen; Cepellos, 2023). Estudos sobre contratação algorítmica mostram que fornecedores raramente detalham como seus modelos avaliam pessoas, o que dificulta verificar se os critérios são justos (Raghavan <i>et al.</i>, 2020). E a inclusão digital só produz inclusão social quando a pessoa consegue de fato usar a tecnologia a seu favor, não apenas acessá-la (Alonso; Ferneda; Santana, 2010).</p>
-      </div>
-    </div>
-    <p class="callout"><strong>Evidências:</strong> até o momento, a justificativa se apoia em referencial bibliográfico. A equipe ainda não coletou dados próprios com usuários; isso está previsto na etapa de validação, com consentimento dos participantes.</p>
-  </div>
+<h2>Problema</h2>
+<h3>Contexto</h3>
+<p>O candidato normalmente não recebe retorno quando é recusado na triagem. Ele não sabe se foi pelo perfil ou porque o sistema não conseguiu ler o documento direito. Alguns casos comuns: currículo em duas colunas (o texto sai embaralhado na extração), dados de contato no cabeçalho da página (muitos sistemas ignoram), competências descritas com palavras diferentes das usadas na vaga.</p>
+<h3>Quem é afetado</h3>
+<ul>
+<li>Estudantes e recém-formados procurando o primeiro emprego ou estágio;</li>
+<li>Trabalhadores em recolocação que não conhecem o funcionamento dos ATS;</li>
+<li>Pessoas sem acesso a orientação de carreira ou a ferramentas pagas.</li>
+</ul>
+<h3>Por que vale a pena resolver</h3>
+<p>Blumen e Cepellos (2023) mostram que o uso de tecnologia e IA no recrutamento está crescendo, mas junto com dúvidas sobre transparência e resistência por parte dos candidatos. Raghavan <i>et al.</i> (2020) analisaram fornecedores de sistemas de contratação algorítmica e apontam que eles divulgam pouco sobre como avaliam as pessoas. Alonso, Ferneda e Santana (2010) lembram que ter acesso à tecnologia não basta para gerar inclusão social: é preciso conseguir usá-la a seu favor.</p>
+<p>Por enquanto a justificativa é baseada em revisão bibliográfica. A coleta de dados com usuários está prevista para a etapa de validação, com consentimento dos participantes.</p>
+
+<h2>Solução proposta</h2>
+<h3>Objetivo geral</h3>
+<p>Desenvolver uma ferramenta web que avalie se um currículo está legível e alinhado a uma vaga específica e devolva sugestões de ajuste.</p>
+<h3>Objetivos específicos</h3>
+<ul>
+<li>Extrair o texto de currículos em PDF, DOCX ou texto colado, incluindo PDFs digitalizados (OCR);</li>
+<li>Identificar as seções do currículo e as competências técnicas e comportamentais;</li>
+<li>Calcular a semelhança entre o currículo e a descrição da vaga;</li>
+<li>Gerar um relatório com os termos que faltam e os problemas de formatação encontrados.</li>
+</ul>
+<h3>Funcionalidades</h3>
+<table>
+<thead><tr><th>Funcionalidade</th><th>Descrição</th><th>Situação</th></tr></thead>
+<tbody>
+<tr><td>Envio do currículo e da vaga</td><td>Upload de PDF/DOCX ou texto colado, mais o texto da vaga</td><td>Planejada</td></tr>
+<tr><td>Extração de texto e OCR</td><td>Leitura de arquivos digitais e digitalizados</td><td>Planejada</td></tr>
+<tr><td>Seções e competências</td><td>Reconhecimento de entidades (NER) para seções, <i>hard skills</i> e <i>soft skills</i></td><td>Planejada</td></tr>
+<tr><td>Pontuação de aderência</td><td>TF-IDF, similaridade de cosseno e <i>embeddings</i></td><td>Planejada</td></tr>
+<tr><td>Relatório de sugestões</td><td>Termos ausentes e alertas de formatação, com explicação</td><td>Planejada</td></tr>
+<tr><td>Página do projeto</td><td>Esta página e a documentação no GitHub Pages</td><td>Implementada</td></tr>
+</tbody>
+</table>
+<h3>Limitações</h3>
+<ul>
+<li>Cada ATS comercial funciona de um jeito e os critérios não são públicos. A pontuação vai ser uma estimativa, não uma cópia de nenhum sistema;</li>
+<li>No início, só currículos e vagas em português;</li>
+<li>A ferramenta avalia como o documento é lido, não a qualificação do candidato;</li>
+<li>Os currículos serão processados só em memória, sem armazenamento (LGPD).</li>
+</ul>
+
+<h2>Demonstração</h2>
+<svg viewBox="0 0 856 72" role="img" aria-label="Fluxo de processamento previsto" style="width:100%;height:auto;font-family:'Open Sans'"><rect x="1" y="1" width="150" height="70" rx="6" fill="#fff" stroke="#606c71"/><text x="76.0" y="28" text-anchor="middle" font-weight="700" font-size="14" fill="#155799">Entrada</text><text x="76.0" y="47" text-anchor="middle" font-size="11" fill="#606c71">PDF, DOCX ou texto +</text><text x="76.0" y="61" text-anchor="middle" font-size="11" fill="#606c71">descrição da vaga</text><path d="M153 36 l18 0 m-6 -5 l6 5 l-6 5" fill="none" stroke="#606c71" stroke-width="1.5"/><rect x="177" y="1" width="150" height="70" rx="6" fill="#fff" stroke="#606c71"/><text x="252.0" y="28" text-anchor="middle" font-weight="700" font-size="14" fill="#155799">Extração</text><text x="252.0" y="47" text-anchor="middle" font-size="11" fill="#606c71">texto bruto, com OCR</text><text x="252.0" y="61" text-anchor="middle" font-size="11" fill="#606c71">se precisar</text><path d="M329 36 l18 0 m-6 -5 l6 5 l-6 5" fill="none" stroke="#606c71" stroke-width="1.5"/><rect x="353" y="1" width="150" height="70" rx="6" fill="#fff" stroke="#606c71"/><text x="428.0" y="28" text-anchor="middle" font-weight="700" font-size="14" fill="#155799">Reconhecimento</text><text x="428.0" y="47" text-anchor="middle" font-size="11" fill="#606c71">seções e competências</text><text x="428.0" y="61" text-anchor="middle" font-size="11" fill="#606c71">(NER)</text><path d="M505 36 l18 0 m-6 -5 l6 5 l-6 5" fill="none" stroke="#606c71" stroke-width="1.5"/><rect x="529" y="1" width="150" height="70" rx="6" fill="#fff" stroke="#606c71"/><text x="604.0" y="28" text-anchor="middle" font-weight="700" font-size="14" fill="#155799">Alinhamento</text><text x="604.0" y="47" text-anchor="middle" font-size="11" fill="#606c71">TF-IDF, cosseno e</text><text x="604.0" y="61" text-anchor="middle" font-size="11" fill="#606c71">embeddings</text><path d="M681 36 l18 0 m-6 -5 l6 5 l-6 5" fill="none" stroke="#606c71" stroke-width="1.5"/><rect x="705" y="1" width="150" height="70" rx="6" fill="#fff" stroke="#606c71"/><text x="780.0" y="28" text-anchor="middle" font-weight="700" font-size="14" fill="#155799">Relatório</text><text x="780.0" y="47" text-anchor="middle" font-size="11" fill="#606c71">pontuação, termos</text><text x="780.0" y="61" text-anchor="middle" font-size="11" fill="#606c71">ausentes e alertas</text></svg>
+
+<p>Ainda não existe protótipo. O exemplo abaixo mostra o tipo de resultado esperado e é fictício.</p>
+<p><b>Vaga:</b> Analista de Suporte de TI, pedindo Active Directory, Microsoft 365, ITIL e boa comunicação.<br>
+<b>Currículo:</b> PDF em duas colunas, com e-mail e telefone no cabeçalho da página.</p>
+<p><b>Resultado esperado:</b></p>
+<ul>
+<li>Termos da vaga não encontrados no currículo: ITIL, Microsoft 365;</li>
+<li>Layout em duas colunas pode embaralhar a ordem do texto;</li>
+<li>Contato no cabeçalho pode ser ignorado, melhor colocar no corpo do documento;</li>
+<li>"Comunicação" identificada de forma indireta, como "atendimento a usuários".</li>
+</ul>
+<p>Capturas de tela e vídeo serão adicionados quando o protótipo estiver pronto.</p>
+
+<h2>Equipe</h2>
+<table><thead><tr><th>Integrante</th><th>Responsabilidades</th></tr></thead><tbody><tr><td><a href="https://github.com/caiolw">Caio Lemos Waltrick</a></td><td>Projeto individual: definição do problema, pesquisa bibliográfica, requisitos, arquitetura, desenvolvimento e documentação.</td></tr></tbody></table>
+<h2>Tecnologias</h2><table><thead><tr><th>Tecnologia</th><th>Para quê</th><th>Situação</th></tr></thead><tbody><tr><td>HTML e CSS</td><td>Estrutura e visual desta página</td><td>Em uso</td></tr><tr><td>Git e GitHub</td><td>Versionamento do código e da documentação</td><td>Em uso</td></tr><tr><td>GitHub Pages</td><td>Publicação da página</td><td>Em uso</td></tr><tr><td>Python</td><td>Back-end e processamento de texto</td><td>Prevista</td></tr><tr><td>FastAPI</td><td>API que recebe os arquivos e devolve a análise</td><td>Prevista</td></tr><tr><td>pdfplumber e python-docx</td><td>Extração de texto de PDF e DOCX</td><td>Prevista</td></tr><tr><td>Tesseract OCR</td><td>Leitura de currículos digitalizados</td><td>Prevista</td></tr><tr><td>spaCy</td><td>Reconhecimento de seções e competências</td><td>Prevista</td></tr><tr><td>scikit-learn</td><td>TF-IDF e similaridade de cosseno</td><td>Prevista</td></tr><tr><td>sentence-transformers</td><td>Embeddings para comparação semântica</td><td>Prevista</td></tr></tbody></table>
+<h2>Documentação</h2><ul><li><a href="https://github.com/caiolw/otimizacv/blob/main/docs/requisitos.md">Requisitos</a>: escopo, requisitos funcionais e não funcionais, histórias de usuário</li><li><a href="https://github.com/caiolw/otimizacv/blob/main/docs/arquitetura.md">Arquitetura e dados</a>: componentes, fluxo de processamento, modelo de dados e decisões técnicas</li><li><a href="https://github.com/caiolw/otimizacv/blob/main/docs/instalacao.md">Instalação e execução</a>: como rodar a página e como o protótipo vai ser executado</li><li><a href="https://github.com/caiolw/otimizacv/blob/main/docs/gestao.md">Gestão e evolução</a>: etapas, decisões, limitações e problemas encontrados</li></ul>
+<h2>Andamento</h2><table><thead><tr><th>#</th><th>Etapa</th><th>Situação</th></tr></thead><tbody><tr><td>1</td><td>Definição do problema e referencial</td><td>Concluída</td></tr><tr><td>2</td><td>Página do projeto e documentação</td><td>Concluída</td></tr><tr><td>3</td><td>Protótipo de extração e pontuação (TF-IDF)</td><td>Próxima</td></tr><tr><td>4</td><td>NER, embeddings e relatório de sugestões</td><td>Planejada</td></tr><tr><td>5</td><td>Interface de análise</td><td>Planejada</td></tr><tr><td>6</td><td>Validação com usuários</td><td>Planejada</td></tr></tbody></table><h3>Próximos passos</h3>
+<ul>
+<li>Implementar a extração de texto e a pontuação básica;</li>
+<li>Montar um conjunto de currículos e vagas fictícios para teste;</li>
+<li>Definir como medir se as sugestões ajudam de verdade.</li>
+</ul>
+
+<h2>Referências</h2><p class='ref'>ALONSO, L. B. N.; FERNEDA, E.; SANTANA, G. P. Inclusão digital e inclusão social: contribuições teóricas e metodológicas. <i>Barbaroi</i>, Santa Cruz do Sul, n. 32, p. 154–177, 2010.</p><p class='ref'>BLUMEN, D.; CEPELLOS, V. M. Dimensões do uso de tecnologia e Inteligência Artificial (IA) em Recrutamento e Seleção (R&amp;S): benefícios, tendências e resistências. <i>Cadernos EBAPE.BR</i>, v. 21, n. 2, e2022-0080, 2023. DOI: 10.1590/1679-395120220080.</p><p class='ref'>PENG, Y.; HUANG, X.; ZHAO, Y. An overview of cross-media retrieval: concepts, methodologies, benchmarks, and challenges. <i>IEEE Transactions on Circuits and Systems for Video Technology</i>, v. 28, n. 9, p. 2372–2385, 2018.</p><p class='ref'>RAGHAVAN, M.; BAROCAS, S.; KLEINBERG, J.; LEVY, K. Mitigating bias in algorithmic hiring: evaluating claims and practices. In: CONFERENCE ON FAIRNESS, ACCOUNTABILITY, AND TRANSPARENCY, 2020, Barcelona. <i>Proceedings</i> [...]. New York: ACM, 2020. p. 469–481. DOI: 10.1145/3351095.3372828.</p>
+<footer class="foot">Mantido por <a href="https://github.com/caiolw">caiolw</a>. Visual baseado no tema Cayman do GitHub Pages.</footer>
 </section>
-
-<!-- SOLUÇÃO -->
-<section id="solucao" class="block alt">
-  <div class="wrap">
-    <p class="kicker">02 · Solução proposta</p>
-    <h2>Mostrar ao candidato o que o sistema enxerga.</h2>
-    <div class="cols">
-      <div>
-        <h3>Objetivo geral</h3>
-        <p>Desenvolver uma ferramenta web que avalie a legibilidade e a aderência de um currículo a uma vaga específica e devolva sugestões claras de ajuste.</p>
-      </div>
-      <div>
-        <h3>Objetivos específicos</h3>
-        <ul class="plain">
-          <li>Extrair texto de currículos em PDF, DOCX ou texto colado, incluindo PDFs digitalizados.</li>
-          <li>Identificar seções e competências técnicas e comportamentais.</li>
-          <li>Medir a semelhança entre o currículo e a descrição da vaga.</li>
-          <li>Gerar um relatório com palavras-chave ausentes e problemas de formatação.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 class="mt">Funcionalidades</h3>
-    <p class="legend"><span class="tag done">Implementada</span> <span class="tag wip">Em desenvolvimento</span> <span class="tag planned">Planejada</span></p>
-    <div class="cards">
-      <article class="card"><h4>Envio do currículo e da vaga</h4><p>Upload de PDF ou DOCX, ou texto colado, junto com o texto da descrição da vaga.</p><span class="tag planned">Planejada</span></article>
-      <article class="card"><h4>Extração de texto com OCR</h4><p>Leitura de arquivos digitais e digitalizados, registrando trechos que não puderam ser lidos.</p><span class="tag planned">Planejada</span></article>
-      <article class="card"><h4>Reconhecimento de seções e competências</h4><p>Uso de NER para separar seções (formação, experiência etc.) e identificar <i>hard</i> e <i>soft skills</i>.</p><span class="tag planned">Planejada</span></article>
-      <article class="card"><h4>Pontuação de aderência</h4><p>Comparação com a vaga por TF-IDF e similaridade de cosseno, com <i>embeddings</i> para captar sinônimos.</p><span class="tag planned">Planejada</span></article>
-      <article class="card"><h4>Relatório de sugestões</h4><p>Lista de termos da vaga ausentes no currículo e alertas de formatação, em linguagem simples.</p><span class="tag planned">Planejada</span></article>
-      <article class="card"><h4>Página do projeto</h4><p>Esta página e a documentação técnica publicadas no GitHub Pages.</p><span class="tag done">Implementada</span></article>
-    </div>
-
-    <div class="cols mt">
-      <div>
-        <h3>Diferenciais pretendidos</h3>
-        <ul class="plain">
-          <li>Comparação com uma vaga real, e não com uma lista genérica de palavras-chave.</li>
-          <li>Explicação do motivo de cada alerta, para que a pessoa aprenda e não dependa da ferramenta.</li>
-          <li>Gratuita e sem cadastro.</li>
-          <li>Currículos processados apenas em memória, sem armazenamento.</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Limitações conhecidas</h3>
-        <ul class="plain">
-          <li>Cada ATS comercial funciona de um jeito e seus critérios não são públicos. A pontuação será uma estimativa, não uma reprodução de nenhum sistema específico.</li>
-          <li>O foco inicial é em currículos e vagas em português.</li>
-          <li>A ferramenta não avalia a qualificação real do candidato, apenas como o documento é lido.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DEMONSTRAÇÃO -->
-<section id="demonstracao" class="block">
-  <div class="wrap">
-    <p class="kicker">03 · Demonstração</p>
-    <h2>Como a análise deve funcionar.</h2>
-    <p class="intro">Ainda não há protótipo funcional. O fluxo abaixo descreve o processamento planejado; o exemplo de entrada e saída é conceitual.</p>
-
-    <figure class="flow" aria-labelledby="flow-cap">
-      <ol class="pipeline">
-        <li><span class="step">1</span><strong>Entrada</strong><span>PDF, DOCX ou texto + descrição da vaga</span></li>
-        <li><span class="step">2</span><strong>Extração</strong><span>Texto bruto, com OCR quando necessário</span></li>
-        <li><span class="step">3</span><strong>Reconhecimento</strong><span>Seções e competências (NER)</span></li>
-        <li><span class="step">4</span><strong>Alinhamento</strong><span>TF-IDF, cosseno e <i>embeddings</i></span></li>
-        <li><span class="step">5</span><strong>Relatório</strong><span>Pontuação, termos ausentes e alertas</span></li>
-      </ol>
-      <figcaption id="flow-cap">Fluxo de processamento previsto para o OtimizaCV.</figcaption>
-    </figure>
-
-    <div class="io">
-      <div class="io-box">
-        <p class="io-label">Entrada (exemplo)</p>
-        <p class="mono small"><strong>Vaga:</strong> “…experiência com Active Directory, Microsoft 365 e boas práticas ITIL; perfil comunicativo…”</p>
-        <p class="mono small"><strong>Currículo:</strong> PDF em duas colunas, com e-mail e telefone no cabeçalho da página.</p>
-      </div>
-      <div class="io-box">
-        <p class="io-label">Saída esperada (exemplo)</p>
-        <ul class="plain small">
-          <li>Termos da vaga não encontrados: “ITIL”, “Microsoft 365”.</li>
-          <li>Layout em duas colunas pode embaralhar a ordem do texto.</li>
-          <li>Dados de contato no cabeçalho podem ser ignorados; mova-os para o corpo do documento.</li>
-          <li>Competência “comunicação” identificada, descrita como “atendimento a usuários”.</li>
-        </ul>
-      </div>
-    </div>
-    <p class="callout">Capturas de tela, vídeo e link para a aplicação serão adicionados aqui quando o protótipo existir.</p>
-  </div>
-</section>
-
-<!-- EQUIPE -->
-<section id="equipe" class="block alt">
-  <div class="wrap">
-    <p class="kicker">04 · Equipe</p>
-    <h2>Quem faz o projeto.</h2>
-    <div class="person">
-      <div class="avatar" aria-hidden="true">CW</div>
-      <div>
-        <h3>Caio Lemos Waltrick</h3>
-        <p>Projeto individual. Responsável pela definição do problema, pesquisa bibliográfica, levantamento de requisitos, arquitetura, desenvolvimento e documentação.</p>
-        <p><a href="https://github.com/caiolw">github.com/caiolw ↗</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TECNOLOGIAS -->
-<section id="tecnologias" class="block">
-  <div class="wrap">
-    <p class="kicker">05 · Tecnologias</p>
-    <h2>Ferramentas do projeto.</h2>
-    <div class="table-wrap">
-      <table>
-        <caption>Tecnologias em uso e previstas</caption>
-        <thead><tr><th scope="col">Tecnologia</th><th scope="col">Finalidade</th><th scope="col">Situação</th></tr></thead>
-        <tbody>
-          <tr><td>HTML e CSS</td><td>Estrutura e apresentação desta página.</td><td><span class="tag done">Em uso</span></td></tr>
-          <tr><td>Git e GitHub</td><td>Versionamento do código e da documentação.</td><td><span class="tag done">Em uso</span></td></tr>
-          <tr><td>GitHub Pages</td><td>Publicação da página do projeto.</td><td><span class="tag done">Em uso</span></td></tr>
-          <tr><td>Python</td><td>Linguagem do back-end e do processamento de texto.</td><td><span class="tag planned">Prevista</span></td></tr>
-          <tr><td>FastAPI</td><td>API que recebe os arquivos e devolve a análise.</td><td><span class="tag planned">Prevista</span></td></tr>
-          <tr><td>pdfplumber e python-docx</td><td>Extração de texto de PDF e DOCX.</td><td><span class="tag planned">Prevista</span></td></tr>
-          <tr><td>Tesseract OCR</td><td>Leitura de currículos digitalizados.</td><td><span class="tag planned">Prevista</span></td></tr>
-          <tr><td>spaCy</td><td>Reconhecimento de entidades: seções e competências.</td><td><span class="tag planned">Prevista</span></td></tr>
-          <tr><td>scikit-learn</td><td>TF-IDF e similaridade de cosseno.</td><td><span class="tag planned">Prevista</span></td></tr>
-          <tr><td>sentence-transformers</td><td><i>Embeddings</i> para comparação semântica.</td><td><span class="tag planned">Prevista</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="small muted">As tecnologias previstas podem mudar durante o desenvolvimento. A tabela será atualizada para refletir o que for de fato utilizado.</p>
-  </div>
-</section>
-
-<!-- DOCUMENTAÇÃO -->
-<section id="documentacao" class="block alt">
-  <div class="wrap">
-    <p class="kicker">06 · Documentação</p>
-    <h2>Registros do projeto.</h2>
-    <div class="docs">
-      <a class="doc" href="https://github.com/caiolw/otimizacv/blob/main/docs/requisitos.md"><strong>Requisitos</strong><span>Escopo, requisitos funcionais e não funcionais, histórias de usuário e critérios de aceitação.</span></a>
-      <a class="doc" href="https://github.com/caiolw/otimizacv/blob/main/docs/arquitetura.md"><strong>Arquitetura e dados</strong><span>Componentes, fluxo de processamento, modelo de dados e decisões técnicas.</span></a>
-      <a class="doc" href="https://github.com/caiolw/otimizacv/blob/main/docs/instalacao.md"><strong>Instalação e execução</strong><span>Como visualizar a página localmente e como o protótipo será executado.</span></a>
-      <a class="doc" href="https://github.com/caiolw/otimizacv/blob/main/docs/gestao.md"><strong>Gestão e evolução</strong><span>Etapas, registro de decisões, limitações e problemas encontrados.</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- EVOLUÇÃO -->
-<section id="evolucao" class="block">
-  <div class="wrap">
-    <p class="kicker">07 · Evolução</p>
-    <h2>Onde o projeto está.</h2>
-    <ol class="timeline">
-      <li class="done"><span class="tag done">Concluída</span><h3>Definição do problema e referencial</h3><p>Delimitação do problema, do público e seleção de referências revisadas por pares.</p></li>
-      <li class="done"><span class="tag done">Concluída</span><h3>Página e documentação</h3><p>Publicação desta página, dos requisitos e da arquitetura proposta.</p></li>
-      <li><span class="tag planned">Próxima</span><h3>Protótipo de extração e pontuação</h3><p>Extração de PDF e DOCX e primeira versão da pontuação por TF-IDF.</p></li>
-      <li><span class="tag planned">Planejada</span><h3>Reconhecimento, <i>embeddings</i> e relatório</h3><p>NER de seções e competências, comparação semântica e geração das sugestões.</p></li>
-      <li><span class="tag planned">Planejada</span><h3>Validação com usuários</h3><p>Testes com estudantes e trabalhadores, com consentimento e sem guardar os currículos.</p></li>
-    </ol>
-    <div class="cols mt">
-      <div>
-        <h3>Resultados até agora</h3>
-        <p>Problema delimitado, referencial teórico definido, arquitetura proposta e requisitos documentados. Não há código da ferramenta nem testes realizados.</p>
-      </div>
-      <div>
-        <h3>Próximos passos</h3>
-        <ul class="plain">
-          <li>Implementar a extração de texto e a pontuação básica.</li>
-          <li>Montar um pequeno conjunto de currículos e vagas fictícios para testes.</li>
-          <li>Definir como medir se as sugestões ajudam de verdade.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REFERÊNCIAS -->
-<section id="referencias" class="block alt">
-  <div class="wrap">
-    <p class="kicker">08 · Referências</p>
-    <h2>Base teórica.</h2>
-    <ul class="refs">
-      <li>ALONSO, L. B. N.; FERNEDA, E.; SANTANA, G. P. Inclusão digital e inclusão social: contribuições teóricas e metodológicas. <i>Barbaroi</i>, Santa Cruz do Sul, n. 32, p. 154–177, 2010.</li>
-      <li>BLUMEN, D.; CEPELLOS, V. M. Dimensões do uso de tecnologia e Inteligência Artificial (IA) em Recrutamento e Seleção (R&amp;S): benefícios, tendências e resistências. <i>Cadernos EBAPE.BR</i>, v. 21, n. 2, e2022-0080, 2023. DOI: <a href="https://doi.org/10.1590/1679-395120220080">10.1590/1679-395120220080</a>.</li>
-      <li>PENG, Y.; HUANG, X.; ZHAO, Y. An overview of cross-media retrieval: concepts, methodologies, benchmarks, and challenges. <i>IEEE Transactions on Circuits and Systems for Video Technology</i>, v. 28, n. 9, p. 2372–2385, 2018.</li>
-      <li>RAGHAVAN, M.; BAROCAS, S.; KLEINBERG, J.; LEVY, K. Mitigating bias in algorithmic hiring: evaluating claims and practices. In: CONFERENCE ON FAIRNESS, ACCOUNTABILITY, AND TRANSPARENCY (FAT*), 2020, Barcelona. <i>Proceedings</i> […]. New York: ACM, 2020. p. 469–481. DOI: <a href="https://doi.org/10.1145/3351095.3372828">10.1145/3351095.3372828</a>.</li>
-    </ul>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot">
-  <div class="wrap foot-inner">
-    <p><strong>OtimizaCV</strong> · Projeto Interdisciplinar I · Gestão da Tecnologia da Informação · IFPR · 2026.2</p>
-    <p>Código sob licença MIT. <a href="https://github.com/caiolw/otimizacv">Repositório ↗</a></p>
-  </div>
-</footer>
-</body>
-</html>
+</body></html>
