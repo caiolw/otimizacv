@@ -1,0 +1,156 @@
+@startuml classes
+title OtimizaCV - Diagrama de classes
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam class {
+  BackgroundColor #F5F9FF
+  BorderColor #2B5C99
+  ArrowColor #2B5C99
+}
+skinparam packageBorderColor #8A9AAA
+
+package "API" {
+  class AnaliseController {
+    + analisar(arquivo: Arquivo, textoCV: str, textoVaga: str): Resultado
+    - validar(arquivo: Arquivo, textoVaga: str): void
+  }
+  class Pipeline {
+    + executar(entrada: EntradaAnalise): Resultado
+    - descartarDados(analise: Analise): void
+  }
+}
+
+package "Módulos" {
+  abstract class Extrator {
+    + {abstract} extrair(conteudo: bytes): DocumentoExtraido
+  }
+  class ExtratorPDF {
+    + extrair(conteudo: bytes): DocumentoExtraido
+    - detectarColunas(): bool
+    - detectarImagens(): bool
+    - ehDigitalizado(): bool
+  }
+  class ExtratorDOCX {
+    + extrair(conteudo: bytes): DocumentoExtraido
+    - detectarTabelas(): bool
+    - lerCabecalhoRodape(): str
+  }
+  class ExtratorTexto {
+    + extrair(conteudo: bytes): DocumentoExtraido
+  }
+  class ServicoOCR {
+    + reconhecer(paginas: List<Imagem>): str
+  }
+  class Reconhecedor {
+    + identificarSecoes(texto: str): List<Secao>
+    + identificarCompetencias(texto: str): List<Competencia>
+  }
+  class Alinhador {
+    - pesoLexical: float
+    - pesoSemantico: float
+    + similaridadeLexical(cv: str, vaga: str): float
+    + similaridadeSemantica(cv: str, vaga: str): float
+    + termosAusentes(cv: Curriculo, vaga: Vaga): List<str>
+    + pontuar(cv: Curriculo, vaga: Vaga): int
+  }
+  class GeradorFeedback {
+    + gerar(analise: Analise): Resultado
+  }
+}
+
+package "Modelo" {
+  class EntradaAnalise {
+    + arquivo: Arquivo
+    + textoCurriculo: str
+    + textoVaga: str
+  }
+  class DocumentoExtraido {
+    + texto: str
+    + origem: str
+    + usouOCR: bool
+    + alertas: List<AlertaFormatacao>
+  }
+  class Analise {
+    + curriculo: Curriculo
+    + vaga: Vaga
+    + resultado: Resultado
+  }
+  class Curriculo {
+    + texto: str
+    + origem: str
+    + usouOCR: bool
+    + secoes: List<Secao>
+    + competencias: List<Competencia>
+    + alertas: List<AlertaFormatacao>
+  }
+  class Vaga {
+    + texto: str
+    + competencias: List<Competencia>
+  }
+  class Secao {
+    + tipo: TipoSecao
+    + conteudo: str
+  }
+  class Competencia {
+    + termo: str
+    + tipo: TipoCompetencia
+  }
+  class AlertaFormatacao {
+    + tipo: TipoAlerta
+    + explicacao: str
+  }
+  class Resultado {
+    + pontuacao: int
+    + termosAusentes: List<str>
+    + competenciasEncontradas: List<Competencia>
+    + alertas: List<AlertaFormatacao>
+    + sugestoes: List<str>
+    + aviso: str
+  }
+  enum TipoCompetencia {
+    TECNICA
+    COMPORTAMENTAL
+  }
+  enum TipoSecao {
+    CONTATO
+    OBJETIVO
+    FORMACAO
+    EXPERIENCIA
+    COMPETENCIAS
+    IDIOMAS
+  }
+  enum TipoAlerta {
+    COLUNAS
+    TABELA
+    IMAGEM
+    CABECALHO_RODAPE
+    DIGITALIZADO
+    POUCO_TEXTO
+  }
+}
+
+AnaliseController --> Pipeline
+Pipeline --> Extrator
+Pipeline --> Reconhecedor
+Pipeline --> Alinhador
+Pipeline --> GeradorFeedback
+Pipeline ..> EntradaAnalise
+Extrator <|-- ExtratorPDF
+Extrator <|-- ExtratorDOCX
+Extrator <|-- ExtratorTexto
+ExtratorPDF --> ServicoOCR
+Extrator ..> DocumentoExtraido
+GeradorFeedback ..> Resultado
+
+Analise *-- "1" Curriculo
+Analise *-- "1" Vaga
+Analise *-- "0..1" Resultado
+Curriculo *-- "0..*" Secao
+Curriculo o-- "0..*" Competencia
+Curriculo *-- "0..*" AlertaFormatacao
+Vaga o-- "0..*" Competencia
+Competencia --> TipoCompetencia
+Secao --> TipoSecao
+AlertaFormatacao --> TipoAlerta
+@enduml

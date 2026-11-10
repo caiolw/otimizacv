@@ -48,7 +48,7 @@ Transforma os resultados dos módulos anteriores em mensagens curtas e explicada
 
 ## 3. Modelo de dados
 
-Não há banco de dados. As estruturas abaixo existem apenas durante a requisição.
+Nenhum dado pessoal é armazenado. As estruturas abaixo existem apenas durante a requisição. O diagrama de classes completo e o modelo entidade-relacionamento do catálogo de referência estão em [modelagem.md](modelagem.md).
 
 ```mermaid
 classDiagram

@@ -1,0 +1,71 @@
+@startuml entidade-relacionamento
+title OtimizaCV - Diagrama entidade-relacionamento (catálogo de referência)
+skinparam shadowing false
+skinparam linetype ortho
+hide circle
+skinparam class {
+  BackgroundColor #F5F9FF
+  BorderColor #2B5C99
+  ArrowColor #2B5C99
+}
+
+entity "COMPETENCIA" as competencia {
+  * id_competencia : INTEGER <<PK>>
+  --
+  * nome : VARCHAR(80) <<UNIQUE>>
+  * tipo : VARCHAR(15)
+  * ativa : BOOLEAN
+}
+
+entity "SINONIMO" as sinonimo {
+  * id_sinonimo : INTEGER <<PK>>
+  --
+  * id_competencia : INTEGER <<FK>>
+  * termo : VARCHAR(80) <<UNIQUE>>
+}
+
+entity "TIPO_SECAO" as tipo_secao {
+  * id_tipo_secao : INTEGER <<PK>>
+  --
+  * nome : VARCHAR(40) <<UNIQUE>>
+  * recomendada : BOOLEAN
+}
+
+entity "TITULO_SECAO" as titulo_secao {
+  * id_titulo : INTEGER <<PK>>
+  --
+  * id_tipo_secao : INTEGER <<FK>>
+  * titulo : VARCHAR(60) <<UNIQUE>>
+}
+
+entity "TERMO_IGNORADO" as termo_ignorado {
+  * id_termo : INTEGER <<PK>>
+  --
+  * termo : VARCHAR(40) <<UNIQUE>>
+  * motivo : VARCHAR(20)
+}
+
+entity "TIPO_ALERTA" as tipo_alerta {
+  * id_tipo_alerta : INTEGER <<PK>>
+  --
+  * codigo : VARCHAR(30) <<UNIQUE>>
+  * titulo : VARCHAR(80)
+  * explicacao : TEXT
+  * gravidade : VARCHAR(10)
+}
+
+competencia ||--o{ sinonimo : "é conhecida por"
+tipo_secao ||--o{ titulo_secao : "é reconhecida por"
+
+note bottom of termo_ignorado
+  motivo: STOPWORD ou GENERICO
+  (palavras de anúncio sem valor de competência)
+end note
+note bottom of competencia
+  tipo: TECNICA ou COMPORTAMENTAL
+end note
+note as N1
+  Nenhuma tabela guarda currículo, vaga,
+  resultado ou dado pessoal (RNF01 / LGPD).
+end note
+@enduml

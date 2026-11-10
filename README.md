@@ -17,6 +17,7 @@ Proposta e documentação concluídas. Há um protótipo da interface em [`app/`
 - [Requisitos](docs/requisitos.md)
 - [Casos de uso](docs/casos-de-uso.md)
 - [Arquitetura e dados](docs/arquitetura.md)
+- [Diagramas de classes e entidade-relacionamento](docs/modelagem.md)
 - [Instalação e execução](docs/instalacao.md)
 - [Gestão e evolução](docs/gestao.md)
 
