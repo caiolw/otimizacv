@@ -6,9 +6,11 @@ Ferramenta proposta para analisar currículos junto com a descrição de uma vag
 
 Página do projeto: https://caiolw.github.io/otimizacv/
 
+Protótipo: https://caiolw.github.io/otimizacv/app/
+
 ## Situação
 
-Proposta e documentação concluídas. A ferramenta ainda não foi implementada.
+Proposta e documentação concluídas. Há um protótipo da interface em [`app/`](app/), que roda inteiramente no navegador (detalhes em [app/README.md](app/README.md)).
 
 ## Documentação
 
