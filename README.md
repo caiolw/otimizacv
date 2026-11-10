@@ -13,6 +13,7 @@ Proposta e documentação concluídas. A ferramenta ainda não foi implementada.
 ## Documentação
 
 - [Requisitos](docs/requisitos.md)
+- [Casos de uso](docs/casos-de-uso.md)
 - [Arquitetura e dados](docs/arquitetura.md)
 - [Instalação e execução](docs/instalacao.md)
 - [Gestão e evolução](docs/gestao.md)

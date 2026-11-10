@@ -1,0 +1,51 @@
+@startuml casos-de-uso
+title OtimizaCV - Diagrama de casos de uso
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #F5F9FF
+  BorderColor #2B5C99
+}
+skinparam actor {
+  BorderColor #2B5C99
+}
+
+actor "Candidato" as C
+
+rectangle "OtimizaCV" {
+  usecase "UC01\nEnviar currículo\n(PDF ou DOCX)" as UC01
+  usecase "UC02\nColar texto\ndo currículo" as UC02
+  usecase "UC03\nInformar descrição\nda vaga" as UC03
+  usecase "UC04\nAnalisar currículo\npara a vaga" as UC04
+  usecase "UC05\nVisualizar relatório\nde aderência" as UC05
+
+  usecase "Extrair texto" as UC06
+  usecase "Aplicar OCR\n(PDF digitalizado)" as UC07
+  usecase "Identificar seções\ne competências" as UC08
+  usecase "Calcular pontuação\n(0 a 100)" as UC09
+  usecase "Listar termos da vaga\nausentes no currículo" as UC10
+  usecase "Alertar sobre\nformatação" as UC11
+  usecase "Descartar dados\nao fim da análise" as UC12
+}
+
+C --> UC01
+C --> UC02
+C --> UC03
+C --> UC04
+C --> UC05
+
+UC04 ..> UC06 : <<include>>
+UC04 ..> UC08 : <<include>>
+UC04 ..> UC09 : <<include>>
+UC04 ..> UC10 : <<include>>
+UC04 ..> UC11 : <<include>>
+UC04 ..> UC12 : <<include>>
+UC07 ..> UC06 : <<extend>>
+
+note right of UC05
+  Exibe pontuação, termos ausentes,
+  alertas e explicações em linguagem simples.
+  Informa que a nota é uma estimativa.
+end note
+@enduml
