@@ -6,9 +6,9 @@
 |-------|-----------|----------|
 | 1. Definição do problema e referencial | Delimitação do problema e do público; seleção de referências revisadas por pares. | Concluída |
 | 2. Página e documentação | Página do projeto no GitHub Pages, requisitos e arquitetura proposta. | Concluída |
-| 3. Protótipo de extração e pontuação | Extração de PDF e DOCX e pontuação por TF-IDF e similaridade de cosseno. | Próxima |
+| 3. Protótipo de extração e pontuação | Extração de PDF e DOCX e pontuação por TF-IDF e similaridade de cosseno. | Concluída (protótipo) |
 | 4. Reconhecimento, *embeddings* e relatório | NER de seções e competências, comparação semântica e geração de sugestões. | Planejada |
-| 5. Interface de análise | Formulário de envio e tela de resultado. | Planejada |
+| 5. Interface de análise | Formulário de envio e tela de resultado. | Concluída (protótipo) |
 | 6. Validação com usuários | Testes com estudantes e trabalhadores, com consentimento e sem armazenar currículos. | Planejada |
 
 ## 2. Registro de decisões

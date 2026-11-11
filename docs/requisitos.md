@@ -1,6 +1,6 @@
 # Requisitos do OtimizaCV
 
-> Situação: documento de planejamento. Nenhum requisito foi implementado até o momento.
+> Situação: protótipo web funcional em `app/`, com análise no navegador (RF01 a RF03, RF05 a RF10 em versão inicial). OCR (RF04) e comparação semântica por *embeddings* seguem planejados.
 
 ## 1. Visão geral e escopo
 
