@@ -169,6 +169,40 @@ function mostrarResultado(r, alertas, origem) {
   el.resultado.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }
 
+// Exemplo para demonstração.
+const EXEMPLO_CV = `Caio Waltrick
+Pinhais, PR · caio@email.com · (41) 90000-0000
+
+Resumo
+Profissional de tecnologia da informação com experiência em suporte técnico, administração de servidores Windows e Active Directory.
+
+Experiência
+Analista de Suporte, SK Engenharia
+Atendimento a usuários, administração do Active Directory, gerenciamento de estações de trabalho e chamados no GLPI. Administração do Microsoft 365 e Exchange Online.
+
+Formação
+Tecnologia em Gestão da Tecnologia da Informação, IFPR
+
+Habilidades
+Windows Server, Active Directory, Microsoft 365, GLPI, PowerShell, redes, comunicação, trabalho em equipe`;
+const EXEMPLO_VAGA = `Analista de Infraestrutura de TI
+
+Buscamos profissional para atuar na administração do ambiente de infraestrutura da empresa, dando suporte aos usuários e garantindo a disponibilidade dos serviços.
+
+Atividades: administrar servidores Windows Server e Active Directory; gerenciar o Microsoft 365 e o Azure AD; automatizar rotinas com PowerShell; monitorar redes e backups; atender chamados de suporte técnico; documentar procedimentos.
+
+Requisitos: experiência com Windows Server, Active Directory, Microsoft 365 e PowerShell; conhecimento em redes, virtualização e segurança da informação; boa comunicação e trabalho em equipe; proatividade.
+
+Diferenciais: certificações Microsoft, conhecimento em Linux, Docker, ITIL e Zabbix.`;
+$('exemplo').addEventListener('click', () => {
+  trocarAba('texto');
+  el.cvTexto.value = EXEMPLO_CV;
+  el.vaga.value = EXEMPLO_VAGA;
+  el.vaga.dispatchEvent(new Event('input'));
+  esconderErro();
+  el.botao.focus();
+});
+
 el.nova.addEventListener('click', () => {
   el.resultado.hidden = true;
   arquivoAtual = null;
