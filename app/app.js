@@ -44,7 +44,7 @@ function definirArquivo(f) {
   if (!/\.(pdf|docx)$/i.test(f.name)) return mostrarErro('Formato não suportado. Envie um arquivo PDF ou DOCX.');
   if (f.size > LIMITE_BYTES) return mostrarErro('O arquivo tem mais de 5 MB. Reduza o tamanho ou cole o texto do currículo.');
   arquivoAtual = f;
-  el.nomeArquivo.textContent = `📄 ${f.name}`;
+  el.nomeArquivo.textContent = f.name;
   el.nomeArquivo.hidden = false;
 }
 el.arquivo.addEventListener('change', () => definirArquivo(el.arquivo.files[0]));
@@ -116,10 +116,10 @@ function preencher(ul, itens, classe, vazio) {
 }
 
 function nivel(p) {
-  if (p >= 75) return ['Alta aderência', '#0f7a45'];
-  if (p >= 50) return ['Aderência média', '#155799'];
-  if (p >= 30) return ['Aderência baixa', '#8a5a00'];
-  return ['Aderência muito baixa', '#b42318'];
+  if (p >= 75) return ['Alta aderência', '#2f6b4a'];
+  if (p >= 50) return ['Aderência média', '#1f4e5f'];
+  if (p >= 30) return ['Aderência baixa', '#8a5a14'];
+  return ['Aderência muito baixa', '#9b2c2c'];
 }
 
 function mostrarResultado(r, alertas, origem) {
