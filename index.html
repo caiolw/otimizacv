@@ -2,16 +2,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OtimizaCV</title><style>
 body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:16px;line-height:1.6;color:#1c2226;background:#f6f5f1}
-.ph{color:#fff;background:#153742;padding:4rem max(1.5rem,calc((100% - 56rem)/2))}
-.ph h1{font-size:3rem;margin:0 0 .3rem;font-weight:700;letter-spacing:-.02em}
-.ph h2{font-size:1.25rem;font-weight:400;color:#c9d6db;margin:0 0 1.5rem;max-width:640px}
-.ph p{color:#9fb3ba;font-size:.9rem;margin:0 0 1.5rem}
-.btn{display:inline-block;margin:0 .5rem .6rem 0;color:#fff;background:transparent;border:1px solid #6d8a94;border-radius:2px;padding:.6rem 1.1rem;text-decoration:none;font-weight:600}
-.btn:hover{background:#1f4e5f;text-decoration:none}
-.btn:first-of-type{background:#b4532a;border-color:#b4532a}
-.btn:first-of-type:hover{background:#9a4522}
-.mc{max-width:56rem;padding:2rem 1.5rem;margin:0 auto;word-wrap:break-word}
-.mc h2{color:#1c2226;font-weight:700;font-size:1.5rem;margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid #1c2226}
+.topo{display:flex;align-items:baseline;gap:.9rem;padding:1rem max(1.5rem,calc((100% - 56rem)/2));background:#153742}
+.marca{color:#fff;font-weight:700;font-size:1.2rem;text-decoration:none}
+.marca:hover{color:#fff}
+.selo{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#c9d6db;border-left:1px solid #4b6a75;padding-left:.9rem}
+.ph{max-width:56rem;margin:0 auto;padding:2.5rem 1.5rem 1.5rem}
+.ph-in{border-bottom:2px solid #1c2226;padding-bottom:1.5rem}
+.ph h1{font-size:2.3rem;margin:0 0 .5rem;font-weight:700;letter-spacing:-.01em;color:#1c2226}
+.ph h2{font-size:1.15rem;font-weight:400;color:#5c666d;margin:0 0 .6rem;max-width:680px}
+.ph p{color:#5c666d;font-size:.9rem;margin:0 0 1.4rem}
+.btn{display:inline-block;margin:0 .5rem .6rem 0;color:#1f4e5f;background:#fff;border:1px solid #1f4e5f;border-radius:2px;padding:.55rem 1.1rem;text-decoration:none;font-weight:600}
+.btn:hover{background:#eef2f3;color:#1f4e5f;text-decoration:none}
+.btn:first-of-type{background:#1f4e5f;color:#fff}
+.btn:first-of-type:hover{background:#153742;color:#fff}
+.mc{max-width:53rem;padding:.5rem 1.8rem 2rem;margin:1rem auto 2rem;word-wrap:break-word;background:#fff;border:1px solid #d6d3cb;border-radius:2px}
+.mc h2{color:#1c2226;font-weight:700;font-size:1.4rem;margin:2rem 0 1rem;padding-top:1.2rem;border-top:1px solid #d6d3cb}
 .mc h3{color:#1f4e5f;font-weight:700;font-size:1.15rem;margin:1.5rem 0 .5rem}
 table{display:block;width:100%;overflow:auto;border-collapse:collapse;margin:1rem 0;background:#fff}
 th{font-weight:700;background:#ecebe6}th,td{padding:.5rem 1rem;border:1px solid #d6d3cb;text-align:left;vertical-align:top}
@@ -20,15 +25,16 @@ blockquote{padding:0 1rem;margin:1rem 0;color:#5c666d;border-left:4px solid #b45
 img{max-width:100%}
 .ref{font-size:.92rem}
 .foot{margin-top:2rem;padding-top:2rem;border-top:1px solid #d6d3cb;font-size:.9rem;color:#5c666d}
-@media(max-width:700px){.ph{padding:2.5rem 1rem}.ph h1{font-size:2.2rem}}
+@media(max-width:700px){.ph{padding:2rem 1rem 1rem}.ph h1{font-size:1.9rem}.mc{margin:1rem;padding:.5rem 1rem 1.5rem}}
 
 table{display:block;overflow-x:auto;max-width:100%}.ref{overflow-wrap:anywhere}main,article{min-width:0}</style></head><body>
-<section class="ph">
+<header class="topo"><a class="marca" href="./">OtimizaCV</a><span class="selo">Projeto</span></header>
+<section class="ph"><div class="ph-in">
 <h1>OtimizaCV</h1>
 <h2>Ferramenta para verificar se o seu currículo está sendo lido corretamente por sistemas de triagem automática (ATS).</h2>
 <p>Gestão da Tecnologia da Informação · IFPR · Projeto Interdisciplinar I · 2026.2</p>
 <a class="btn" href="app/">Testar protótipo</a><a class="btn" href="https://github.com/caiolw/otimizacv">Ver no GitHub</a><a class="btn" href="https://github.com/caiolw/otimizacv/blob/main/docs/requisitos.md">Requisitos</a><a class="btn" href="https://github.com/caiolw/otimizacv/blob/main/docs/arquitetura.md">Arquitetura</a>
-</section>
+</div></section>
 <section class="mc">
 <blockquote>Projeto em planejamento. A ferramenta ainda não foi implementada; esta página reúne a proposta e a documentação.</blockquote>
 <h2>Sobre o projeto</h2>
